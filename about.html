@@ -1,0 +1,869 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/images/logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="About Shankh Air — Welcome to Our World, Where Innovation Meets Purpose, and Possibilities Unfold. Learn about our story, values and mission." />
+    <meta name="theme-color" content="#ff621f" />
+    <title>About Us — Shankh Air</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* ===== ABOUT PAGE SPECIFIC STYLES ===== */
+      .about-hero {
+        background: linear-gradient(135deg, var(--navy-dark) 0%, #0f1e2d 100%);
+        padding: 100px 0 80px;
+        position: relative;
+        overflow: hidden;
+      }
+      .about-hero::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ff621f' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='30'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        pointer-events: none;
+      }
+      .about-hero-accent {
+        position: absolute;
+        top: -80px;
+        right: -80px;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle, rgba(255,98,31,0.12) 0%, transparent 70%);
+        pointer-events: none;
+      }
+      .about-hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: 760px;
+      }
+      .about-breadcrumb {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
+        color: rgba(255,255,255,0.5);
+        margin-bottom: 24px;
+      }
+      .about-breadcrumb a { color: rgba(255,255,255,0.5); text-decoration: none; }
+      .about-breadcrumb a:hover { color: var(--primary); }
+      .about-breadcrumb span { color: rgba(255,255,255,0.25); }
+      .about-hero h1 {
+        font-size: clamp(32px, 5vw, 56px);
+        font-weight: 800;
+        color: var(--white);
+        line-height: 1.15;
+        margin-bottom: 20px;
+      }
+      .about-hero h1 em {
+        font-style: normal;
+        color: var(--primary);
+      }
+      .about-hero-desc {
+        font-size: 18px;
+        color: rgba(255,255,255,0.7);
+        line-height: 1.7;
+        max-width: 600px;
+      }
+      .about-hero-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 32px;
+      }
+      .about-pill {
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.12);
+        color: rgba(255,255,255,0.8);
+        padding: 7px 16px;
+        border-radius: var(--radius-full);
+        font-size: 13px;
+        font-weight: 500;
+      }
+
+      /* ===== MISSION STRIP ===== */
+      .mission-strip {
+        background: var(--primary);
+        padding: 20px 0;
+      }
+      .mission-strip-inner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 48px;
+        flex-wrap: wrap;
+      }
+      .mission-stat {
+        text-align: center;
+        color: var(--white);
+      }
+      .mission-stat-num {
+        font-size: 28px;
+        font-weight: 800;
+        display: block;
+      }
+      .mission-stat-lbl {
+        font-size: 12px;
+        opacity: 0.85;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+      }
+      .mission-divider {
+        width: 1px;
+        height: 36px;
+        background: rgba(255,255,255,0.3);
+      }
+
+      /* ===== STORY SECTION ===== */
+      .story-section {
+        padding: 96px 0;
+        background: var(--white);
+      }
+      .story-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 72px;
+        align-items: center;
+      }
+      .story-eyebrow {
+        display: inline-block;
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--primary);
+        margin-bottom: 16px;
+      }
+      .story-text h2 {
+        font-size: clamp(26px, 3.5vw, 40px);
+        font-weight: 700;
+        color: var(--navy-dark);
+        line-height: 1.2;
+        margin-bottom: 20px;
+      }
+      .story-text p {
+        font-size: 16px;
+        color: var(--text-mid);
+        line-height: 1.8;
+        margin-bottom: 16px;
+      }
+      .story-image-wrap {
+        position: relative;
+      }
+      .story-img-main {
+        width: 100%;
+        height: 420px;
+        object-fit: cover;
+        border-radius: 20px;
+        display: block;
+      }
+      .story-img-badge {
+        position: absolute;
+        bottom: -20px;
+        left: -20px;
+        background: var(--navy-dark);
+        color: var(--white);
+        padding: 20px 24px;
+        border-radius: 16px;
+        box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+      }
+      .story-img-badge strong {
+        display: block;
+        font-size: 32px;
+        font-weight: 800;
+        color: var(--primary);
+        line-height: 1;
+      }
+      .story-img-badge span {
+        font-size: 12px;
+        color: rgba(255,255,255,0.65);
+        margin-top: 4px;
+        display: block;
+      }
+
+      /* ===== VALUES SECTION ===== */
+      .values-section {
+        padding: 96px 0;
+        background: var(--bg-page);
+      }
+      .values-header {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+      .values-header h2 {
+        font-size: clamp(26px, 3.5vw, 38px);
+        font-weight: 700;
+        color: var(--navy-dark);
+        margin-bottom: 12px;
+      }
+      .values-header p {
+        font-size: 16px;
+        color: var(--text-mid);
+        max-width: 520px;
+        margin: 0 auto;
+        line-height: 1.7;
+      }
+      .values-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+      }
+      .value-card {
+        background: var(--white);
+        border-radius: 16px;
+        padding: 32px 24px;
+        border: 1px solid #f0f0f0;
+        transition: var(--transition);
+        position: relative;
+        overflow: hidden;
+      }
+      .value-card::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: var(--primary);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+      }
+      .value-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); border-color: transparent; }
+      .value-card:hover::before { transform: scaleX(1); }
+      .value-icon {
+        width: 48px;
+        height: 48px;
+        background: linear-gradient(135deg, rgba(255,98,31,0.12), rgba(255,98,31,0.06));
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        margin-bottom: 20px;
+      }
+      .value-card h3 {
+        font-size: 15px;
+        font-weight: 700;
+        color: var(--navy-dark);
+        margin-bottom: 10px;
+        line-height: 1.3;
+      }
+      .value-card p {
+        font-size: 13px;
+        color: var(--text-mid);
+        line-height: 1.7;
+      }
+
+      /* ===== ENGINEERING SECTION ===== */
+      .engineering-section {
+        padding: 96px 0;
+        background: var(--navy-dark);
+        position: relative;
+        overflow: hidden;
+      }
+      .engineering-section::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: linear-gradient(135deg, #1b3043 0%, #0f1e2d 100%);
+        z-index: 0;
+      }
+      .engineering-glow {
+        position: absolute;
+        top: -100px;
+        left: -100px;
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(circle, rgba(255,98,31,0.08) 0%, transparent 60%);
+        pointer-events: none;
+        z-index: 0;
+      }
+      .engineering-content {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 72px;
+        align-items: center;
+      }
+      .engineering-text .story-eyebrow { color: var(--primary); }
+      .engineering-text h2 {
+        font-size: clamp(26px, 3.5vw, 40px);
+        font-weight: 700;
+        color: var(--white);
+        line-height: 1.2;
+        margin-bottom: 20px;
+      }
+      .engineering-text p {
+        font-size: 15px;
+        color: rgba(255,255,255,0.65);
+        line-height: 1.8;
+        margin-bottom: 16px;
+      }
+      .engineering-cert {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(16,185,129,0.15);
+        border: 1px solid rgba(16,185,129,0.3);
+        color: var(--teal);
+        padding: 10px 18px;
+        border-radius: var(--radius-full);
+        font-size: 13px;
+        font-weight: 700;
+        margin-top: 8px;
+        letter-spacing: 0.5px;
+      }
+      .engineering-cert::before { content: '✓'; font-size: 15px; }
+      .engineering-img {
+        width: 100%;
+        height: 420px;
+        object-fit: cover;
+        border-radius: 20px;
+        display: block;
+        opacity: 0.85;
+      }
+
+      /* ===== NEWSROOM SECTION ===== */
+      .newsroom-section {
+        padding: 96px 0;
+        background: var(--white);
+      }
+      .newsroom-header {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        margin-bottom: 48px;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+      .newsroom-header h2 {
+        font-size: clamp(24px, 3vw, 36px);
+        font-weight: 700;
+        color: var(--navy-dark);
+      }
+      .news-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 28px;
+      }
+      .news-card {
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid #f0f0f0;
+        transition: var(--transition);
+        display: flex;
+        flex-direction: column;
+      }
+      .news-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); border-color: transparent; }
+      .news-card-img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        display: block;
+      }
+      .news-card-body {
+        padding: 24px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      .news-tag {
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--primary);
+        margin-bottom: 10px;
+      }
+      .news-card-body h3 {
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--navy-dark);
+        line-height: 1.4;
+        margin-bottom: 10px;
+      }
+      .news-card-body p {
+        font-size: 13px;
+        color: var(--text-mid);
+        line-height: 1.7;
+        flex: 1;
+      }
+      .news-card-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 16px;
+        padding-top: 16px;
+        border-top: 1px solid #f0f0f0;
+      }
+      .news-date { font-size: 12px; color: var(--text-light); }
+      .news-read-more {
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--primary);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        transition: gap 0.2s ease;
+      }
+      .news-read-more:hover { gap: 8px; }
+
+      /* ===== CTA STRIP ===== */
+      .about-cta {
+        padding: 80px 0;
+        background: linear-gradient(135deg, var(--primary) 0%, #d94e13 100%);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .about-cta::before {
+        content: '✈';
+        position: absolute;
+        font-size: 240px;
+        opacity: 0.06;
+        right: -40px;
+        top: -40px;
+        color: var(--white);
+        pointer-events: none;
+      }
+      .about-cta h2 {
+        font-size: clamp(24px, 4vw, 42px);
+        font-weight: 800;
+        color: var(--white);
+        margin-bottom: 16px;
+      }
+      .about-cta p {
+        font-size: 16px;
+        color: rgba(255,255,255,0.85);
+        margin-bottom: 32px;
+        max-width: 480px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.6;
+      }
+      .about-cta-btns {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .btn-cta-white {
+        background: var(--white);
+        color: var(--primary);
+        padding: 14px 32px;
+        border-radius: var(--radius-full);
+        font-weight: 800;
+        font-size: 15px;
+        text-decoration: none;
+        transition: var(--transition);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .btn-cta-white:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+      .btn-cta-outline-white {
+        background: transparent;
+        color: var(--white);
+        border: 2px solid rgba(255,255,255,0.6);
+        padding: 14px 32px;
+        border-radius: var(--radius-full);
+        font-weight: 700;
+        font-size: 15px;
+        text-decoration: none;
+        transition: var(--transition);
+      }
+      .btn-cta-outline-white:hover { background: rgba(255,255,255,0.12); border-color: white; }
+
+      /* ===== RESPONSIVE ===== */
+      @media (max-width: 1024px) {
+        .values-grid { grid-template-columns: repeat(2, 1fr); }
+        .news-grid { grid-template-columns: repeat(2, 1fr); }
+      }
+      @media (max-width: 768px) {
+        .story-grid, .engineering-content { grid-template-columns: 1fr; gap: 40px; }
+        .story-image-wrap { order: -1; }
+        .story-img-main, .engineering-img { height: 260px; }
+        .story-img-badge { bottom: -16px; left: 16px; }
+        .mission-strip-inner { gap: 24px; }
+        .mission-divider { display: none; }
+        .values-grid { grid-template-columns: 1fr 1fr; }
+        .news-grid { grid-template-columns: 1fr; }
+        .newsroom-header { flex-direction: column; align-items: flex-start; }
+      }
+      @media (max-width: 480px) {
+        .values-grid { grid-template-columns: 1fr; }
+        .about-hero { padding: 70px 0 60px; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- ===== NAVBAR ===== -->
+    <header class="navbar" id="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="nav-logo" aria-label="Shankh Air Home">
+          <svg class="logo-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="24" cy="24" r="22" fill="#ff621f"/>
+            <path d="M8 28c3-8 10-14 16-14 4 0 7 2 9 5l7-4-3 8-8-1c-1 3-4 6-8 8L8 28z" fill="white"/>
+            <path d="M14 32l4-2 2 4-6-2z" fill="white" opacity="0.7"/>
+          </svg>
+          <span class="logo-text">Shankh <strong>Air</strong></span>
+        </a>
+
+        <nav class="nav-links" id="navLinks" aria-label="Main Navigation">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="index.html#flights" class="nav-link">Flights</a>
+          <a href="index.html#destinations" class="nav-link">Destinations</a>
+          <div class="nav-dropdown">
+            <a href="#" class="nav-link dropdown-toggle active" id="aboutDropdown" aria-expanded="false">About ▾</a>
+            <div class="dropdown-menu" role="menu" aria-labelledby="aboutDropdown">
+              <a href="about.html" role="menuitem">Our Story</a>
+              <a href="#" role="menuitem">Leadership</a>
+              <a href="#" role="menuitem">Careers</a>
+              <a href="#" role="menuitem">Newsroom</a>
+            </div>
+          </div>
+          <a href="#" class="nav-link">Help &amp; Info</a>
+          <a href="#" class="nav-link">Manage</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a href="#" class="nav-talk">Talk to Shankh Air</a>
+          <a href="#" class="btn-login" id="loginBtn">Login</a>
+        </div>
+
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+
+      <!-- ===== ABOUT HERO ===== -->
+      <section class="about-hero" aria-labelledby="aboutHeroHeading">
+        <div class="about-hero-accent" aria-hidden="true"></div>
+        <div class="section-container">
+          <div class="about-hero-content">
+            <nav class="about-breadcrumb" aria-label="Breadcrumb">
+              <a href="index.html">Home</a>
+              <span>›</span>
+              <span aria-current="page">About Us</span>
+            </nav>
+            <h1 id="aboutHeroHeading">Welcome to Our World,<br>Where Innovation Meets<br><em>Purpose</em></h1>
+            <p class="about-hero-desc">And Possibilities Unfold. Born from the heart of Uttar Pradesh, Shankh Air is on a mission to make air travel accessible, reliable and extraordinary for every Indian.</p>
+            <div class="about-hero-pills">
+              <span class="about-pill">✈ Headquartered in Lucknow</span>
+              <span class="about-pill">🇮🇳 Proudly Indian</span>
+              <span class="about-pill">🌱 Founded 2024</span>
+              <span class="about-pill">🏆 Passenger-First Airline</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== MISSION STATS STRIP ===== -->
+      <div class="mission-strip" role="region" aria-label="Shankh Air at a Glance">
+        <div class="section-container mission-strip-inner">
+          <div class="mission-stat">
+            <strong class="mission-stat-num">2,200+</strong>
+            <span class="mission-stat-lbl">Daily Flights</span>
+          </div>
+          <div class="mission-divider" aria-hidden="true"></div>
+          <div class="mission-stat">
+            <strong class="mission-stat-num">96</strong>
+            <span class="mission-stat-lbl">Domestic Destinations</span>
+          </div>
+          <div class="mission-divider" aria-hidden="true"></div>
+          <div class="mission-stat">
+            <strong class="mission-stat-num">400+</strong>
+            <span class="mission-stat-lbl">Team Strong</span>
+          </div>
+          <div class="mission-divider" aria-hidden="true"></div>
+          <div class="mission-stat">
+            <strong class="mission-stat-num">₹2,800</strong>
+            <span class="mission-stat-lbl">Fares Starting At</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== OUR STORY ===== -->
+      <section class="story-section" aria-labelledby="storyHeading">
+        <div class="section-container story-grid">
+          <div class="story-text">
+            <span class="story-eyebrow">Our Story</span>
+            <h2 id="storyHeading">From Tempo Driver<br>to Airline Owner</h2>
+            <p>An inspiring story of entrepreneurship and determination. Our exclusive low-fare routes with exceptional savings are designed to make your journey comfortable, reliable and accessible to every Indian — regardless of their background.</p>
+            <p>In this exclusive journey, our founder set out with a vision of making air travel accessible to every Indian. From humble beginnings to launching an airline, the story behind Shankh Air is one of grit, passion, and an unrelenting belief that affordable flying can change lives.</p>
+            <p>Shankh Air will connect major cities within and outside Uttar Pradesh, boosting regional connectivity and economic growth. Initial routes include Lucknow, Varanasi, Gorakhpur, and key metros like Delhi, Mumbai, and Bengaluru.</p>
+            <a href="#" class="btn-primary" style="margin-top:8px; display:inline-flex; align-items:center; gap:8px;">Watch Our Story ▶</a>
+          </div>
+          <div class="story-image-wrap">
+            <img
+              src="/images/dest_lucknow.png"
+              alt="Lucknow — Shankh Air's home city"
+              class="story-img-main"
+              loading="lazy"
+            />
+            <div class="story-img-badge">
+              <strong>2024</strong>
+              <span>Year Founded</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== OUR VALUES ===== -->
+      <section class="values-section" aria-labelledby="valuesHeading">
+        <div class="section-container">
+          <div class="values-header">
+            <span class="story-eyebrow">What Drives Us</span>
+            <h2 id="valuesHeading">Our Pillars of <span class="text-orange">Excellence</span></h2>
+            <p>Every decision we make is centered around your comfort, safety, and satisfaction. These are the values that define Shankh Air.</p>
+          </div>
+          <div class="values-grid">
+            <div class="value-card">
+              <div class="value-icon">🧭</div>
+              <h3>Passenger-First Philosophy</h3>
+              <p>Every decision we make is centered around your comfort, safety, and satisfaction. You are not just a passenger — you are our priority.</p>
+            </div>
+            <div class="value-card">
+              <div class="value-icon">📱</div>
+              <h3>Seamless Booking Experience</h3>
+              <p>Fast, user-friendly platform with instant confirmations, secure payments, and real-time seat selection — booking made effortless.</p>
+            </div>
+            <div class="value-card">
+              <div class="value-icon">⏱️</div>
+              <h3>On-Time Performance</h3>
+              <p>We prioritize punctuality to ensure your plans stay right on schedule. Your time matters — and we treat it that way.</p>
+            </div>
+            <div class="value-card">
+              <div class="value-icon">🗺️</div>
+              <h3>Expanding Route Network</h3>
+              <p>Thoughtfully selected destinations that connect growing cities, regional hubs, and emerging markets — bridging India's heartland.</p>
+            </div>
+            <div class="value-card">
+              <div class="value-icon">🤝</div>
+              <h3>Exceptional Crew &amp; Hospitality</h3>
+              <p>Trained professionals dedicated to providing warm, attentive, and personalized service throughout your journey.</p>
+            </div>
+            <div class="value-card">
+              <div class="value-icon">✈️</div>
+              <h3>Modern Fleet, Comfortable Travel</h3>
+              <p>Enjoy well-maintained aircraft equipped for safety, comfort, and reliability — Checked, Certified, and Ready to Fly.</p>
+            </div>
+            <div class="value-card">
+              <div class="value-icon">🌏</div>
+              <h3>Strong Regional Focus</h3>
+              <p>Strengthening connectivity across underserved regions, making air travel more accessible to tier-2 and tier-3 cities across India.</p>
+            </div>
+            <div class="value-card">
+              <div class="value-icon">💡</div>
+              <h3>Transparent Policies</h3>
+              <p>No hidden charges, clear fare structures, and reliable customer support. What you see is exactly what you pay.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== ENGINEERING & FLEET ===== -->
+      <section class="engineering-section" aria-labelledby="engineeringHeading">
+        <div class="engineering-glow" aria-hidden="true"></div>
+        <div class="section-container engineering-content">
+          <div class="engineering-text">
+            <span class="story-eyebrow">Fleet &amp; Technology</span>
+            <h2 id="engineeringHeading">Innovating the Future<br>of <span style="color:var(--primary)">Aviation Technology</span></h2>
+            <p>Maintaining world-class safety, performance, and innovation in every Shankh Air flight. Our engineering teams work around the clock to keep every aircraft in perfect condition.</p>
+            <p>Beyond the aircraft, our engineering prowess extends to the technology that keeps the airline running smoothly. Our network and infrastructure teams ensure seamless communication between ground operations, maintenance crews, and pilots.</p>
+            <span class="engineering-cert">Checked | Certified | Ready to Fly</span>
+          </div>
+          <div>
+            <img
+              src="/images/dest_varanasi.png"
+              alt="Shankh Air fleet operations"
+              class="engineering-img"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== NEWSROOM ===== -->
+      <section class="newsroom-section" aria-labelledby="newsroomHeading">
+        <div class="section-container">
+          <div class="newsroom-header">
+            <div>
+              <span class="story-eyebrow">Latest from Shankh Air</span>
+              <h2 id="newsroomHeading">Updates, Announcements, and<br>Stories from Our <span class="text-orange">Journey</span></h2>
+            </div>
+            <a href="#" class="btn-outline">View All News</a>
+          </div>
+
+          <div class="news-grid">
+            <article class="news-card">
+              <img src="/images/dest_lucknow.png" alt="ANI Media interview" class="news-card-img" loading="lazy" />
+              <div class="news-card-body">
+                <span class="news-tag">Exclusive Interview</span>
+                <h3>Exclusive interview with ANI Media — Expanding affordable air travel across India</h3>
+                <p>Our founder discusses the vision of making air travel accessible to every Indian. From humble beginnings to launching an airline, hear the inspiring journey and future plans for domestic expansion.</p>
+                <div class="news-card-footer">
+                  <span class="news-date">June 2025</span>
+                  <a href="#" class="news-read-more">Read more →</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="news-card">
+              <img src="/images/dest_gorakhpur.png" alt="Founder Story" class="news-card-img" loading="lazy" />
+              <div class="news-card-body">
+                <span class="news-tag">Founder Story</span>
+                <h3>From Tempo Driver to Airline Owner — An inspiring story of entrepreneurship</h3>
+                <p>Discover the strategic planning and meticulous execution involved in launching new domestic routes. Learn how market research and customer feedback shaped our expansion strategy.</p>
+                <div class="news-card-footer">
+                  <span class="news-date">May 2025</span>
+                  <a href="#" class="news-read-more">Read more →</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="news-card">
+              <img src="/images/dest_varanasi.png" alt="New Routes launch" class="news-card-img" loading="lazy" />
+              <div class="news-card-body">
+                <span class="news-tag">Operations</span>
+                <h3>Journey behind launching new routes — Behind-the-scenes look at route planning</h3>
+                <p>Get a glimpse into the daily operations of Shankh Air, from aircraft maintenance to crew training programs. These shorts showcase the professionalism of our team.</p>
+                <div class="news-card-footer">
+                  <span class="news-date">April 2025</span>
+                  <a href="#" class="news-read-more">Read more →</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== CTA ===== -->
+      <section class="about-cta" aria-labelledby="ctaHeading">
+        <div class="section-container" style="position:relative;z-index:1;">
+          <h2 id="ctaHeading">Ready to Take Off With Shankh Air?</h2>
+          <p>Experience affordable, comfortable, and reliable flying — connecting the heart of India, one flight at a time.</p>
+          <div class="about-cta-btns">
+            <a href="index.html#flights" class="btn-cta-white">✈ Book a Flight</a>
+            <a href="#" class="btn-cta-outline-white">Explore Destinations</a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer" aria-label="Shankh Air Footer">
+      <div class="footer-overlay" aria-hidden="true"></div>
+      <div class="section-container footer-content">
+        <div class="footer-grid">
+
+          <!-- Brand -->
+          <div class="footer-brand">
+            <div class="footer-logo">
+              <svg class="logo-icon logo-icon--sm" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                <circle cx="24" cy="24" r="22" fill="#ff621f"/>
+                <path d="M8 28c3-8 10-14 16-14 4 0 7 2 9 5l7-4-3 8-8-1c-1 3-4 6-8 8L8 28z" fill="white"/>
+                <path d="M14 32l4-2 2 4-6-2z" fill="white" opacity="0.7"/>
+              </svg>
+              <span>Shankh Air</span>
+            </div>
+            <p>Expanding affordable air travel across India. Strengthening connectivity across underserved regions — making air travel more accessible, one flight at a time.</p>
+            <div class="footer-social" aria-label="Social Media Links">
+              <a href="#" class="social-icon" aria-label="Facebook">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              </a>
+              <a href="#" class="social-icon" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+              </a>
+              <a href="#" class="social-icon" aria-label="Twitter / X">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              </a>
+              <a href="#" class="social-icon" aria-label="YouTube">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Customer -->
+          <div class="footer-col">
+            <h3 class="footer-heading">Customer</h3>
+            <ul class="footer-list">
+              <li><a href="index.html#flights">Book a Flight</a></li>
+              <li><a href="#">Web Check-in</a></li>
+              <li><a href="#">Manage Booking</a></li>
+              <li><a href="#">Flight Status</a></li>
+              <li><a href="#">Baggage Info</a></li>
+              <li><a href="#">Special Assistance</a></li>
+            </ul>
+          </div>
+
+          <!-- Flights -->
+          <div class="footer-col">
+            <h3 class="footer-heading">Flights</h3>
+            <ul class="footer-list">
+              <li><a href="#">Lucknow → Delhi</a></li>
+              <li><a href="#">Lucknow → Mumbai</a></li>
+              <li><a href="#">Lucknow → Bengaluru</a></li>
+              <li><a href="#">Varanasi → Delhi</a></li>
+              <li><a href="#">Gorakhpur → Mumbai</a></li>
+              <li><a href="#">All Routes</a></li>
+            </ul>
+          </div>
+
+          <!-- Quick Info -->
+          <div class="footer-col">
+            <h3 class="footer-heading">Quick Info</h3>
+            <ul class="footer-list">
+              <li><a href="about.html">About Shankh Air</a></li>
+              <li><a href="#">BluChip Loyalty</a></li>
+              <li><a href="#">ShankhStretch</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Newsroom</a></li>
+              <li><a href="#">Investor Relations</a></li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+          <p class="footer-copyright">© 2025 Shankh Air. All rights reserved. | Registered in Lucknow, Uttar Pradesh, India.</p>
+          <div class="footer-legal">
+            <a href="#">Terms &amp; Conditions</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Cookie Policy</a>
+            <a href="#">Sitemap</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="/main.js"></script>
+    <script>
+      // Navbar scroll effect
+      const navbar = document.getElementById('navbar');
+      window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 20);
+      });
+      // Mobile hamburger
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('navLinks');
+      hamburger?.addEventListener('click', () => {
+        const open = navLinks.classList.toggle('open');
+        hamburger.setAttribute('aria-expanded', open);
+      });
+    </script>
+  </body>
+</html>
