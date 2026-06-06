@@ -1,0 +1,726 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/images/logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Shankh Air — Connecting the heart of India. Fly from Lucknow to Varanasi, Gorakhpur, Delhi, Mumbai, Bengaluru and beyond." />
+    <meta name="theme-color" content="#ff621f" />
+    <title>Shankh Air — Fly with Pride, Fly India</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <!-- ===== NAVBAR ===== -->
+    <header class="navbar" id="navbar">
+      <div class="nav-container">
+        <a href="#" class="nav-logo" aria-label="Shankh Air Home">
+          <svg class="logo-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="24" cy="24" r="22" fill="#ff621f"/>
+            <path d="M8 28c3-8 10-14 16-14 4 0 7 2 9 5l7-4-3 8-8-1c-1 3-4 6-8 8L8 28z" fill="white"/>
+            <path d="M14 32l4-2 2 4-6-2z" fill="white" opacity="0.7"/>
+          </svg>
+          <span class="logo-text">Shankh <strong>Air</strong></span>
+        </a>
+
+        <nav class="nav-links" id="navLinks" aria-label="Main Navigation">
+          <a href="#" class="nav-link active">Home</a>
+          <a href="#flights" class="nav-link">Flights</a>
+          <a href="#destinations" class="nav-link">Destinations</a>
+          <div class="nav-dropdown">
+            <a href="#" class="nav-link dropdown-toggle" id="aboutDropdown" aria-expanded="false">About ▾</a>
+            <div class="dropdown-menu" role="menu" aria-labelledby="aboutDropdown">
+              <a href="#" role="menuitem">Our Story</a>
+              <a href="#" role="menuitem">Leadership</a>
+              <a href="#" role="menuitem">Careers</a>
+              <a href="#" role="menuitem">Newsroom</a>
+            </div>
+          </div>
+          <a href="#" class="nav-link">Help & Info</a>
+          <a href="#" class="nav-link">Manage</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a href="#" class="nav-talk">Talk to Shankh Air</a>
+          <a href="#" class="btn-login" id="loginBtn">Login</a>
+        </div>
+
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- ===== HERO SEARCH SECTION ===== -->
+    <section class="hero-section" id="flights">
+      <div class="hero-bg-art" aria-hidden="true">
+        <div class="cloud-layer"></div>
+        <div class="hero-plane-wrap">
+          <img src="/images/hero_plane.png" alt="" class="hero-plane" />
+        </div>
+      </div>
+      <div class="hero-container">
+        <div class="hero-greeting">
+          <h1>Hi there, plan your journey with ease —<br>
+            <span class="hero-highlight">Flights, Hotels and beyond!</span>
+          </h1>
+        </div>
+
+        <!-- Search Box -->
+        <div class="search-box">
+          <!-- Tabs -->
+          <div class="search-tabs" role="tablist">
+            <button class="search-tab active" id="tab-flights" role="tab" aria-selected="true" aria-controls="panel-flights" data-tab="flights">
+              <span class="tab-icon">✈</span> Flights
+            </button>
+            <button class="search-tab" id="tab-hotels" role="tab" aria-selected="false" aria-controls="panel-hotels" data-tab="hotels">
+              <span class="tab-icon">🏨</span> Hotels
+            </button>
+            <button class="search-tab" id="tab-holiday" role="tab" aria-selected="false" aria-controls="panel-holiday" data-tab="holiday">
+              <span class="tab-icon">🌴</span> Holiday
+            </button>
+            <button class="search-tab" id="tab-visa" role="tab" aria-selected="false" aria-controls="panel-visa" data-tab="visa">
+              <span class="tab-icon">📄</span> Visa
+            </button>
+            <button class="search-tab" id="tab-trips" role="tab" aria-selected="false" aria-controls="panel-trips" data-tab="trips">
+              <span class="tab-icon">🔒</span> Trip Details
+            </button>
+          </div>
+
+          <!-- Flights Panel -->
+          <div class="search-panel active" id="panel-flights" role="tabpanel" aria-labelledby="tab-flights">
+            <div class="trip-type">
+              <label class="radio-label">
+                <input type="radio" name="tripType" value="oneway" checked id="oneway"> One Way
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="tripType" value="roundtrip" id="roundtrip"> Round Trip
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="tripType" value="multicity" id="multicity"> Multi City
+              </label>
+            </div>
+
+            <div class="search-fields">
+              <div class="field-group from-field">
+                <label class="field-label">From</label>
+                <div class="field-input">
+                  <span class="city-code">LKO</span>
+                  <span class="city-name">Lucknow</span>
+                  <span class="airport-name">Chaudhary Charan Singh Intl</span>
+                </div>
+              </div>
+
+              <button class="swap-btn" id="swapBtn" aria-label="Swap cities">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4"/>
+                </svg>
+              </button>
+
+              <div class="field-group to-field">
+                <label class="field-label">To</label>
+                <div class="field-input">
+                  <span class="city-code">DEL</span>
+                  <span class="city-name">Delhi</span>
+                  <span class="airport-name">Indira Gandhi Intl Airport</span>
+                </div>
+              </div>
+
+              <div class="field-group date-field">
+                <label class="field-label" for="departDate">Departure</label>
+                <input type="date" class="date-input" id="departDate" />
+              </div>
+
+              <div class="field-group date-field" id="returnDateGroup">
+                <label class="field-label" for="returnDate">Return</label>
+                <input type="date" class="date-input" id="returnDate" disabled placeholder="Add Return Date" />
+              </div>
+
+              <div class="field-group traveller-field">
+                <label class="field-label">Travellers & Class</label>
+                <div class="field-input traveller-trigger" id="travellerTrigger" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false">
+                  <span class="traveller-count">1 Adult</span>
+                  <span class="traveller-class">Economy</span>
+                </div>
+                <div class="traveller-dropdown" id="travellerDropdown" aria-hidden="true">
+                  <div class="traveller-row">
+                    <div>
+                      <strong>Adults</strong>
+                      <small>12+ yrs</small>
+                    </div>
+                    <div class="counter-wrap">
+                      <button class="counter-btn" id="adultMinus" aria-label="Decrease adults">−</button>
+                      <span id="adultCount">1</span>
+                      <button class="counter-btn" id="adultPlus" aria-label="Increase adults">+</button>
+                    </div>
+                  </div>
+                  <div class="traveller-row">
+                    <div>
+                      <strong>Children</strong>
+                      <small>2–11 yrs</small>
+                    </div>
+                    <div class="counter-wrap">
+                      <button class="counter-btn" id="childMinus" aria-label="Decrease children">−</button>
+                      <span id="childCount">0</span>
+                      <button class="counter-btn" id="childPlus" aria-label="Increase children">+</button>
+                    </div>
+                  </div>
+                  <div class="class-select">
+                    <label>Cabin Class</label>
+                    <select id="cabinClass" aria-label="Select cabin class">
+                      <option value="economy">Economy</option>
+                      <option value="premium">Premium Economy</option>
+                      <option value="business">Business</option>
+                    </select>
+                  </div>
+                  <button class="btn-apply" id="applyTravellers">Apply</button>
+                </div>
+              </div>
+
+              <button class="btn-search" id="searchBtn" aria-label="Search flights">
+                Search
+              </button>
+            </div>
+
+            <div class="search-quick-links">
+              <span class="quick-tag" id="weWantTag">#WeWant</span>
+              <a href="#" class="quick-link">📅 Fare Calendar</a>
+              <a href="#" class="quick-link">✈ Popular Flights</a>
+            </div>
+          </div>
+
+          <!-- Other Panels (minimal placeholder) -->
+          <div class="search-panel" id="panel-hotels" role="tabpanel" aria-labelledby="tab-hotels">
+            <div class="panel-placeholder">
+              <h3>🏨 Hotel Search</h3>
+              <p>Find the best hotels across India with Shankh Air packages</p>
+            </div>
+          </div>
+          <div class="search-panel" id="panel-holiday" role="tabpanel" aria-labelledby="tab-holiday">
+            <div class="panel-placeholder">
+              <h3>🌴 Holiday Packages</h3>
+              <p>Curated holiday packages across India's most beautiful destinations</p>
+            </div>
+          </div>
+          <div class="search-panel" id="panel-visa" role="tabpanel" aria-labelledby="tab-visa">
+            <div class="panel-placeholder">
+              <h3>📄 Visa Assistance</h3>
+              <p>Hassle-free visa assistance for your international journeys</p>
+            </div>
+          </div>
+          <div class="search-panel" id="panel-trips" role="tabpanel" aria-labelledby="tab-trips">
+            <div class="panel-placeholder">
+              <h3>🔒 Manage Trip</h3>
+              <p>View, modify or cancel your Shankh Air bookings</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== OFFERS CAROUSEL ===== -->
+    <section class="offers-section" aria-labelledby="offersHeading">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 id="offersHeading">Find exciting <span class="text-orange">offers</span> and best deals.</h2>
+          <div class="carousel-controls">
+            <button class="carousel-btn" id="offersPrev" aria-label="Previous offers">&#8592;</button>
+            <button class="carousel-btn" id="offersNext" aria-label="Next offers">&#8594;</button>
+          </div>
+        </div>
+
+        <div class="offers-track-wrap">
+          <div class="offers-track" id="offersTrack">
+            <div class="offer-card">
+              <div class="offer-card-img offer-card-img--photo">
+                <img src="/images/offer_cars.png" alt="Cars with Shankh Air — luxury cab service" loading="lazy" />
+                <div class="offer-img-overlay offer-img-overlay--orange"></div>
+                <span class="offer-img-badge">CAB BOOKING</span>
+              </div>
+              <div class="offer-card-body">
+                <h3>Cars with Shankh Air</h3>
+                <p>Save up to ₹500 on cab bookings</p>
+                <a href="#" class="offer-cta">Book Now →</a>
+              </div>
+            </div>
+
+            <div class="offer-card">
+              <div class="offer-card-img offer-card-img--photo">
+                <img src="/images/offer_flights.png" alt="50% off flights — limited time deal" loading="lazy" />
+                <div class="offer-img-overlay offer-img-overlay--teal"></div>
+                <span class="offer-img-badge offer-img-badge--hot">50% OFF</span>
+              </div>
+              <div class="offer-card-body">
+                <h3>50% off Flights</h3>
+                <p>Limited seats — Book before they go</p>
+                <a href="#" class="offer-cta">Grab Deal →</a>
+              </div>
+            </div>
+
+            <div class="offer-card">
+              <div class="offer-card-img offer-card-img--photo">
+                <img src="/images/offer_hotels.png" alt="Hotels on Shankh Air — luxury stays" loading="lazy" />
+                <div class="offer-img-overlay offer-img-overlay--dark"></div>
+                <span class="offer-img-badge">HOTELS</span>
+              </div>
+              <div class="offer-card-body">
+                <h3>Hotels on Shankh Air</h3>
+                <p>Earn BluChip points on every stay</p>
+                <a href="#" class="offer-cta">Explore →</a>
+              </div>
+            </div>
+
+            <div class="offer-card">
+              <div class="offer-card-img offer-card-img--photo">
+                <img src="/images/offer_destinations.png" alt="Incredible India destinations" loading="lazy" />
+                <div class="offer-img-overlay offer-img-overlay--purple"></div>
+                <span class="offer-img-badge">EXPLORE INDIA</span>
+              </div>
+              <div class="offer-card-body">
+                <h3>Destinations</h3>
+                <p>Discover incredible India with us</p>
+                <a href="#" class="offer-cta">Discover →</a>
+              </div>
+            </div>
+
+            <div class="offer-card">
+              <div class="offer-card-img offer-card-img--photo">
+                <img src="/images/offer_gift.png" alt="Gift a flight to your loved ones" loading="lazy" />
+                <div class="offer-img-overlay offer-img-overlay--rose"></div>
+                <span class="offer-img-badge">GIFT FLIGHTS</span>
+              </div>
+              <div class="offer-card-body">
+                <h3>Gift a Flight</h3>
+                <p>Surprise your loved ones with travel</p>
+                <a href="#" class="offer-cta">Gift Now →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== WEEKEND EXCLUSIVES BANNER ===== -->
+    <section class="weekend-banner" aria-labelledby="weekendHeading">
+      <div class="weekend-content">
+        <div class="weekend-text">
+          <h2 id="weekendHeading">Shankh Air<br><strong>Weekend Exclusives</strong></h2>
+          <p>Save up to <span class="price-highlight">₹2,500*</span> on flight bookings.<br>Only on Shankh Air website &amp; app.</p>
+          <div class="weekend-dots">
+            <span class="dot active" data-idx="0"></span>
+            <span class="dot" data-idx="1"></span>
+            <span class="dot" data-idx="2"></span>
+            <span class="dot" data-idx="3"></span>
+          </div>
+        </div>
+        <div class="weekend-illustration" aria-hidden="true">
+          <img src="/images/weekend_illustration.png" alt="Person relaxing on beach vacation" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== DUAL DARK CARDS ===== -->
+    <section class="dark-cards-section" aria-label="Shankh Air Services">
+      <div class="section-container">
+        <div class="dark-cards-grid">
+
+          <!-- BluChip Card -->
+          <div class="dark-card bluchip-card">
+            <div class="bluchip-badge">LOYALTY REWARDS</div>
+            <div class="bluchip-coin" aria-hidden="true">
+              <svg viewBox="0 0 80 80" fill="none">
+                <circle cx="40" cy="40" r="38" fill="url(#goldGrad)" stroke="#f59e0b" stroke-width="2"/>
+                <text x="40" y="36" text-anchor="middle" fill="#7c2d12" font-size="12" font-weight="bold" font-family="DM Sans">SA</text>
+                <text x="40" y="52" text-anchor="middle" fill="#7c2d12" font-size="8" font-family="DM Sans">BluChip</text>
+                <defs>
+                  <radialGradient id="goldGrad" cx="35%" cy="35%">
+                    <stop offset="0%" stop-color="#fde68a"/>
+                    <stop offset="100%" stop-color="#d97706"/>
+                  </radialGradient>
+                </defs>
+              </svg>
+            </div>
+            <h2>Earn Shankh Air<br><span class="text-gold">BluChip</span></h2>
+            <p>on flights and redeem on a free flight. Every mile takes you closer to your next journey.</p>
+            <div class="partner-logos" aria-label="Partner brands">
+              <span class="partner-badge">Zomato</span>
+              <span class="partner-badge">Flipkart</span>
+              <span class="partner-badge">MakeMyTrip</span>
+              <span class="partner-badge">IRCTC</span>
+            </div>
+            <a href="#" class="btn-bluchip">Know More</a>
+          </div>
+
+          <!-- Right column: Stretch + Hotels stacked -->
+          <div class="dark-cards-right">
+
+            <!-- ShankhStretch Card -->
+            <div class="dark-card stretch-card" style="background-image: url('/images/stretch_bg.png'); background-size: cover; background-position: center;">
+              <div class="stretch-card-overlay"></div>
+              <div class="stretch-tag">NEW</div>
+              <h2>Unlock<br><span class="text-orange">ShankhStretch</span></h2>
+              <p>Upgrade to extra legroom seats. More space, more comfort — starting at just ₹349.</p>
+              <a href="#" class="btn-outline-white">Know More</a>
+            </div>
+
+            <!-- Hotels Card -->
+            <div class="dark-card hotels-card">
+              <div class="hotels-overlay">
+                <h2>Hotels on<br><strong>Shankh Air</strong></h2>
+                <p>Up to 30% off on hotel bookings &amp; earn BluChip on every stay.</p>
+                <a href="#" class="btn-hotels">Book Hotels</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TRENDING DESTINATIONS ===== -->
+    <section class="destinations-section" id="destinations" aria-labelledby="destHeading">
+      <div class="section-container">
+        <div class="section-header">
+          <div>
+            <h2 id="destHeading">Trending Sight-Seeing Cities</h2>
+            <p class="section-sub">Discover incredible India with Shankh Air</p>
+          </div>
+          <div class="dest-badge-wrap">
+            <span class="sale-badge">Upto 50% off</span>
+            <div class="carousel-controls">
+              <button class="carousel-btn" id="destPrev" aria-label="Previous destinations">&#8592;</button>
+              <button class="carousel-btn" id="destNext" aria-label="Next destinations">&#8594;</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="dest-track-wrap">
+          <div class="dest-track" id="destTrack">
+            <div class="dest-card">
+              <div class="dest-img-wrap">
+                <img src="/images/dest_lucknow.png" alt="Lucknow" loading="lazy" />
+              </div>
+              <p class="dest-name">Lucknow</p>
+              <p class="dest-tag">Home City ✈</p>
+            </div>
+            <div class="dest-card">
+              <div class="dest-img-wrap">
+                <img src="/images/dest_varanasi.png" alt="Varanasi" loading="lazy" />
+              </div>
+              <p class="dest-name">Varanasi</p>
+              <p class="dest-tag">From ₹1,999</p>
+            </div>
+            <div class="dest-card">
+              <div class="dest-img-wrap">
+                <img src="/images/dest_jaipur.png" alt="Jaipur" loading="lazy" />
+              </div>
+              <p class="dest-name">Jaipur</p>
+              <p class="dest-tag">From ₹2,499</p>
+            </div>
+            <div class="dest-card">
+              <div class="dest-img-wrap">
+                <img src="/images/dest_goa.png" alt="Goa" loading="lazy" />
+              </div>
+              <p class="dest-name">Goa</p>
+              <p class="dest-tag">From ₹3,199</p>
+            </div>
+            <div class="dest-card">
+              <div class="dest-img-wrap">
+                <img src="/images/dest_udaipur.png" alt="Udaipur" loading="lazy" />
+              </div>
+              <p class="dest-name">Udaipur</p>
+              <p class="dest-tag">From ₹2,799</p>
+            </div>
+            <div class="dest-card">
+              <div class="dest-img-wrap">
+                <img src="/images/dest_kerala.png" alt="Kerala" loading="lazy" />
+              </div>
+              <p class="dest-name">Kerala</p>
+              <p class="dest-tag">From ₹3,499</p>
+            </div>
+            <div class="dest-card">
+              <div class="dest-img-wrap">
+                <img src="/images/dest_ladakh.png" alt="Leh Ladakh" loading="lazy" />
+              </div>
+              <p class="dest-name">Leh Ladakh</p>
+              <p class="dest-tag">From ₹4,999</p>
+            </div>
+            <div class="dest-card">
+              <div class="dest-img-wrap">
+                <img src="/images/dest_gorakhpur.png" alt="Gorakhpur" loading="lazy" />
+              </div>
+              <p class="dest-name">Gorakhpur</p>
+              <p class="dest-tag">Home State ✈</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- New Routes Pill Row -->
+        <div class="new-routes-section" aria-labelledby="newRoutesHeading">
+          <h3 id="newRoutesHeading">New Shankh Air Routes</h3>
+          <div class="routes-pills">
+            <a href="#" class="route-pill">
+              <span class="route-from">LKO</span>
+              <span class="route-arrow">✈</span>
+              <span class="route-to">DEL</span>
+            </a>
+            <a href="#" class="route-pill">
+              <span class="route-from">LKO</span>
+              <span class="route-arrow">✈</span>
+              <span class="route-to">BOM</span>
+            </a>
+            <a href="#" class="route-pill">
+              <span class="route-from">LKO</span>
+              <span class="route-arrow">✈</span>
+              <span class="route-to">BLR</span>
+            </a>
+            <a href="#" class="route-pill">
+              <span class="route-from">VNS</span>
+              <span class="route-arrow">✈</span>
+              <span class="route-to">DEL</span>
+            </a>
+            <a href="#" class="route-pill">
+              <span class="route-from">GOP</span>
+              <span class="route-arrow">✈</span>
+              <span class="route-to">BOM</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EDITORIAL / INSPIRATION ===== -->
+    <section class="editorial-section" aria-labelledby="editorialHeading">
+      <div class="section-container editorial-grid">
+        <div class="editorial-text">
+          <span class="editorial-eyebrow">Where discovery meets the sky</span>
+          <h2 id="editorialHeading">Embark on a journey of inspiration with <span class="text-orange">Shankh Air,</span> where discovery meets the sky.</h2>
+          <p>Born in the City of Nawabs, we carry the spirit of Lucknow's warmth and hospitality to every corner of India. From the ghats of Varanasi to the beaches of Goa — we connect hearts.</p>
+          <a href="#" class="btn-primary">Explore Routes</a>
+        </div>
+        <div class="editorial-photos" aria-hidden="true">
+          <div class="photo-stack">
+            <div class="photo-card photo-card--back">
+              <img src="/images/dest_varanasi.png" alt="Varanasi at sunrise" loading="lazy" />
+            </div>
+            <div class="photo-card photo-card--front">
+              <img src="/images/dest_lucknow.png" alt="Lucknow Bara Imambara" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Blog teaser -->
+      <div class="section-container blog-teaser">
+        <div class="blog-card">
+          <img src="/images/dest_ladakh.png" alt="Leh Ladakh article" class="blog-thumb" loading="lazy" />
+          <div class="blog-body">
+            <span class="blog-tag">Travel Guide</span>
+            <h3>Top 5 Reasons to Visit Leh Ladakh This Season</h3>
+            <p>From the surreal Pangong Lake to the high-altitude monasteries, Ladakh is a destination like no other…</p>
+            <span class="blog-date">17 May 2025</span>
+          </div>
+        </div>
+        <div class="blog-card">
+          <img src="/images/dest_varanasi.png" alt="Varanasi article" class="blog-thumb" loading="lazy" />
+          <div class="blog-body">
+            <span class="blog-tag">Heritage</span>
+            <h3>Varanasi — A Spiritual Journey on the Banks of the Ganga</h3>
+            <p>The oldest living city in the world welcomes you with morning aartis, ancient ghats and timeless stories…</p>
+            <span class="blog-date">3 June 2025</span>
+          </div>
+        </div>
+        <a href="#" class="btn-outline view-more-btn">View More Articles</a>
+      </div>
+    </section>
+
+    <!-- ===== ADD-ONS SECTION ===== -->
+    <section class="addons-section" aria-labelledby="addonsHeading">
+      <div class="addons-bg" style="background-image: url('/images/addons_bg.png');" aria-hidden="true"></div>
+      <div class="addons-overlay" aria-hidden="true"></div>
+      <div class="section-container addons-content">
+        <h2 id="addonsHeading">Add more of <span class="text-orange">Add-ons</span><br>to your journey</h2>
+
+        <div class="addons-carousel-wrap">
+          <div class="addons-grid" id="addonsGrid">
+            <div class="addon-card">
+              <div class="addon-icon">🍛</div>
+              <h3>Pre-book Meal</h3>
+              <p>Pre-book meals at up to <strong>70% discount</strong> — enjoy your favourite food mid-air</p>
+              <a href="#" class="addon-cta">Add Meal</a>
+            </div>
+            <div class="addon-card">
+              <div class="addon-icon">🧳</div>
+              <h3>Pre-paid Baggage</h3>
+              <p>Pre-paid excess baggage starting at just <strong>₹499</strong> — pack without worry</p>
+              <a href="#" class="addon-cta">Add Baggage</a>
+            </div>
+            <div class="addon-card">
+              <div class="addon-icon">💺</div>
+              <h3>Extra Legroom (XL)</h3>
+              <p>Emergency Exit seats with extra legroom starting at <strong>₹899</strong> — stretch and relax</p>
+              <a href="#" class="addon-cta">Choose Seat</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STATS SECTION ===== -->
+    <section class="stats-section" aria-labelledby="statsHeading">
+      <div class="stats-overlay" aria-hidden="true"></div>
+      <div class="section-container stats-content">
+        <div class="stats-main">
+          <div class="stats-big">
+            <span class="stats-number" data-target="2200" id="statFlights">0</span>
+            <span class="stats-plus">+</span>
+          </div>
+          <p class="stats-label">Daily Flights</p>
+          <div class="stats-arrow" aria-hidden="true">→</div>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-item" id="statsHeading">
+            <span class="stat-number" data-target="96" id="statDomestic">0</span>
+            <span class="stat-label">Domestic<br>Destinations</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" data-target="45" id="statIntl">0</span>
+            <span class="stat-label">International<br>Destinations</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" data-target="850" id="statCustomers">0</span>
+            <span class="stat-suffix">Mn+</span>
+            <span class="stat-label">Happy<br>Customers</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" data-target="400" id="statTeam">0</span>
+            <span class="stat-suffix">+</span>
+            <span class="stat-label">Team<br>Strong</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer" aria-label="Shankh Air Footer">
+      <div class="footer-overlay" aria-hidden="true"></div>
+      <div class="section-container footer-content">
+        <div class="footer-grid">
+
+          <!-- Brand -->
+          <div class="footer-brand">
+            <div class="footer-logo">
+              <svg class="logo-icon logo-icon--sm" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                <circle cx="24" cy="24" r="22" fill="#ff621f"/>
+                <path d="M8 28c3-8 10-14 16-14 4 0 7 2 9 5l7-4-3 8-8-1c-1 3-4 6-8 8L8 28z" fill="white"/>
+                <path d="M14 32l4-2 2 4-6-2z" fill="white" opacity="0.7"/>
+              </svg>
+              <span>Shankh Air</span>
+            </div>
+            <p>Born in Lucknow. Flying India. Connecting the heart of Uttar Pradesh to the world with pride, warmth and the spirit of Nawabi excellence.</p>
+            <div class="footer-social" aria-label="Social Media Links">
+              <a href="#" class="social-icon" aria-label="Facebook">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              </a>
+              <a href="#" class="social-icon" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+              </a>
+              <a href="#" class="social-icon" aria-label="Twitter / X">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              </a>
+              <a href="#" class="social-icon" aria-label="YouTube">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
+              </a>
+              <a href="#" class="social-icon" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Customer -->
+          <div class="footer-col">
+            <h3 class="footer-heading">Customer</h3>
+            <ul class="footer-list">
+              <li><a href="#">Book a Flight</a></li>
+              <li><a href="#">Web Check-in</a></li>
+              <li><a href="#">Manage Booking</a></li>
+              <li><a href="#">Flight Status</a></li>
+              <li><a href="#">Baggage Info</a></li>
+              <li><a href="#">Special Assistance</a></li>
+            </ul>
+          </div>
+
+          <!-- Flights -->
+          <div class="footer-col">
+            <h3 class="footer-heading">Flights</h3>
+            <ul class="footer-list">
+              <li><a href="#">Lucknow → Delhi</a></li>
+              <li><a href="#">Lucknow → Mumbai</a></li>
+              <li><a href="#">Lucknow → Bengaluru</a></li>
+              <li><a href="#">Varanasi → Delhi</a></li>
+              <li><a href="#">Gorakhpur → Mumbai</a></li>
+              <li><a href="#">All Routes</a></li>
+            </ul>
+          </div>
+
+          <!-- Quick Info -->
+          <div class="footer-col">
+            <h3 class="footer-heading">Quick Info</h3>
+            <ul class="footer-list">
+              <li><a href="#">About Shankh Air</a></li>
+              <li><a href="#">BluChip Loyalty</a></li>
+              <li><a href="#">ShankhStretch</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Newsroom</a></li>
+              <li><a href="#">Investor Relations</a></li>
+            </ul>
+          </div>
+
+          <!-- Help & App -->
+          <div class="footer-col">
+            <h3 class="footer-heading">Help</h3>
+            <ul class="footer-list">
+              <li><a href="#">FAQs</a></li>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Travel Advisory</a></li>
+              <li><a href="#">Refund Policy</a></li>
+              <li><a href="#">Feedback</a></li>
+            </ul>
+
+            <div class="footer-app-section">
+              <h3 class="footer-heading">Download App</h3>
+              <div class="app-badges">
+                <a href="#" class="app-badge" aria-label="Download on App Store">
+                  <svg viewBox="0 0 20 20" fill="currentColor" class="app-store-icon"><path d="M13.5 1A1.5 1.5 0 0012 2.5V4h-2V2.5A1.5 1.5 0 008.5 1h-1A1.5 1.5 0 006 2.5V4H4.5A1.5 1.5 0 003 5.5v11A1.5 1.5 0 004.5 18h11a1.5 1.5 0 001.5-1.5v-11A1.5 1.5 0 0015.5 4H14V2.5A1.5 1.5 0 0012.5 1h-1z"/></svg>
+                  App Store
+                </a>
+                <a href="#" class="app-badge" aria-label="Get it on Google Play">
+                  <svg viewBox="0 0 20 20" fill="currentColor" class="app-store-icon"><path d="M3 2l14 8-14 8V2z"/></svg>
+                  Google Play
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+          <p class="footer-copyright">© 2025 Shankh Air. All rights reserved. | Registered in Lucknow, Uttar Pradesh, India.</p>
+          <div class="footer-legal">
+            <a href="#">Terms &amp; Conditions</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Cookie Policy</a>
+            <a href="#">Sitemap</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
