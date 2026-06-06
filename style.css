@@ -769,24 +769,13 @@ input, select { font-family: inherit; }
 .dark-cards-right { display: flex; flex-direction: column; gap: 20px; }
 /* Stretch */
 .stretch-card {
-  /* bg-image set inline; this is the fallback colour */
-  background-color: #1b3043;
+  background: linear-gradient(135deg, #294252, #1b3043);
   color: var(--white);
   padding: 32px;
   min-height: 0;
   flex: 1;
-  position: relative;
 }
-/* Dark overlay so text stays legible over the photo */
-.stretch-card-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(27,48,67,0.88) 0%, rgba(15,30,45,0.75) 100%);
-  border-radius: inherit;
-  pointer-events: none;
-  z-index: 0;
-}
-.stretch-card > * { position: relative; z-index: 1; }
+.stretch-card-overlay { display: none; }
 .stretch-tag {
   background: var(--teal);
   color: var(--white);
