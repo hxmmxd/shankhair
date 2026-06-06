@@ -113,6 +113,8 @@ input, select { font-family: inherit; }
   background: var(--white);
   box-shadow: 0 2px 12px rgba(0,0,0,0.08);
   transition: var(--transition);
+  /* needed to anchor the mobile dropdown */
+  isolation: isolate;
 }
 .navbar.scrolled {
   background: var(--bg-light);
@@ -270,8 +272,29 @@ input, select { font-family: inherit; }
   animation: cloudDrift 20s linear infinite;
 }
 @keyframes cloudDrift { 0% { transform: translateX(0); } 100% { transform: translateX(-5%); } }
+/* Hero branded plane */
+.hero-plane-wrap {
+  position: absolute;
+  right: -40px;
+  bottom: -20px;
+  width: 52%;
+  max-width: 680px;
+  pointer-events: none;
+  animation: planeDrift 6s ease-in-out infinite;
+}
+.hero-plane {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 40px rgba(255,98,31,0.18));
+}
+@keyframes planeDrift {
+  0%, 100% { transform: translateY(0px) rotate(-1deg); }
+  50%       { transform: translateY(-12px) rotate(0.5deg); }
+}
+@media (max-width: 900px) { .hero-plane-wrap { display: none; } }
 .hero-container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
-.hero-greeting { margin-bottom: 36px; }
+.hero-greeting { margin-bottom: 36px; max-width: 580px; }
 .hero-greeting h1 {
   font-size: clamp(20px, 3vw, 28px);
   font-weight: 500;
@@ -344,25 +367,25 @@ input, select { font-family: inherit; }
 
 /* Search fields */
 .search-fields {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr 1fr 1fr 1fr auto;
   align-items: stretch;
-  gap: 0;
   background: var(--bg-light);
   border-radius: var(--radius-md);
   overflow: visible;
-  flex-wrap: wrap;
+  border: 1px solid #e5e7eb;
 }
 .field-group {
   position: relative;
-  flex: 1;
-  min-width: 130px;
   padding: 14px 18px;
   border-right: 1px solid #e5e7eb;
   background: var(--white);
   transition: var(--transition);
   cursor: pointer;
+  min-width: 0;
 }
 .field-group:first-child { border-radius: var(--radius-md) 0 0 var(--radius-md); }
+.field-group:last-of-type { border-right: none; }
 .field-group:hover { background: #fff9f6; }
 .field-label {
   display: block;
@@ -405,17 +428,17 @@ input, select { font-family: inherit; }
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  align-self: center;
+  justify-self: center;
   z-index: 10;
   transition: var(--transition);
   box-shadow: 0 2px 8px var(--primary-glow);
   flex-shrink: 0;
+  margin: 0 -8px;
+  position: relative;
 }
 .swap-btn svg { width: 16px; height: 16px; }
-.swap-btn:hover { transform: translate(-50%, -50%) rotate(180deg); background: var(--primary-dark); }
+.swap-btn:hover { transform: rotate(180deg); background: var(--primary-dark); }
 .from-field { position: relative; }
 
 /* Traveller dropdown */
@@ -497,13 +520,14 @@ input, select { font-family: inherit; }
 .btn-search {
   background: var(--primary);
   color: var(--white);
-  padding: 0 36px;
+  padding: 0 28px;
   font-size: 16px;
   font-weight: 800;
   border-radius: 0 var(--radius-md) var(--radius-md) 0;
   transition: var(--transition);
   letter-spacing: 0.5px;
-  min-width: 120px;
+  min-width: 110px;
+  white-space: nowrap;
 }
 .btn-search:hover { background: var(--primary-dark); }
 
@@ -681,18 +705,20 @@ input, select { font-family: inherit; }
 }
 .dot.active { background: var(--white); transform: scale(1.3); }
 .weekend-illustration {
-  flex: 0 0 280px;
+  flex: 0 0 320px;
   display: flex;
   align-items: flex-end;
-  justify-content: center;
+  justify-content: flex-end;
   overflow: hidden;
+  padding-right: 0;
 }
 .weekend-illustration img {
-  width: 260px;
-  height: 220px;
-  object-fit: contain;
-  transform: scale(1.1);
-  filter: drop-shadow(0 8px 24px rgba(0,0,0,0.2));
+  width: 300px;
+  height: 260px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 12px 12px 0 0;
+  box-shadow: 0 -8px 32px rgba(0,0,0,0.25);
 }
 
 /* ===== DARK CARDS SECTION ===== */
@@ -764,12 +790,24 @@ input, select { font-family: inherit; }
 .dark-cards-right { display: flex; flex-direction: column; gap: 20px; }
 /* Stretch */
 .stretch-card {
-  background: linear-gradient(135deg, #294252, #1b3043);
+  /* bg-image set inline; this is the fallback colour */
+  background-color: #1b3043;
   color: var(--white);
   padding: 32px;
   min-height: 0;
   flex: 1;
+  position: relative;
 }
+/* Dark overlay so text stays legible over the photo */
+.stretch-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(27,48,67,0.88) 0%, rgba(15,30,45,0.75) 100%);
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 0;
+}
+.stretch-card > * { position: relative; z-index: 1; }
 .stretch-tag {
   background: var(--teal);
   color: var(--white);
@@ -781,7 +819,7 @@ input, select { font-family: inherit; }
   width: fit-content;
 }
 .stretch-card h2 { font-size: 20px; font-weight: 600; line-height: 1.3; }
-.stretch-card p { font-size: 13px; color: rgba(255,255,255,0.7); }
+.stretch-card p { font-size: 13px; color: rgba(255,255,255,0.75); }
 /* Hotels */
 .hotels-card {
   flex: 1;
@@ -1086,15 +1124,21 @@ input, select { font-family: inherit; }
   gap: 24px;
 }
 .stat-item { text-align: center; }
+.stat-number-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 2px;
+}
 .stat-number {
   font-size: 48px;
   font-weight: 800;
   color: var(--white);
   line-height: 1;
-  display: block;
+  display: inline-block;
 }
-.stat-suffix { font-size: 24px; font-weight: 700; color: var(--primary); }
-.stat-label { font-size: 14px; color: rgba(255,255,255,0.6); margin-top: 8px; line-height: 1.4; }
+.stat-suffix { font-size: 28px; font-weight: 700; color: var(--primary); display: inline-block; }
+.stat-label { font-size: 13px; color: rgba(255,255,255,0.6); margin-top: 8px; line-height: 1.4; }
 
 /* ===== FOOTER ===== */
 .footer {
@@ -1210,6 +1254,16 @@ input, select { font-family: inherit; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .editorial-grid { grid-template-columns: 1fr; gap: 40px; }
   .photo-stack { height: 280px; }
+  .search-fields {
+    grid-template-columns: 1fr 1fr;
+  }
+  .swap-btn { display: none; }
+  .btn-search {
+    grid-column: 1 / -1;
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+    padding: 18px;
+  }
+  .field-group:first-child { border-radius: var(--radius-md) 0 0 0; }
 }
 
 @media (max-width: 768px) {
@@ -1217,14 +1271,14 @@ input, select { font-family: inherit; }
   .nav-links.open {
     display: flex;
     flex-direction: column;
-    position: absolute;
+    position: fixed;
     top: 70px;
     left: 0;
     right: 0;
     background: var(--white);
     padding: 16px 24px 24px;
     box-shadow: var(--shadow-md);
-    z-index: 100;
+    z-index: 999;
     gap: 0;
   }
   .nav-links.open .nav-link {
@@ -1233,15 +1287,14 @@ input, select { font-family: inherit; }
     font-size: 16px;
   }
   .hamburger { display: flex; }
-  .search-fields { flex-direction: column; }
-  .field-group { border-right: none; border-bottom: 1px solid #e5e7eb; border-radius: 0; }
-  .btn-search { border-radius: 0 0 var(--radius-md) var(--radius-md); padding: 18px; }
-  .swap-btn { display: none; }
+  .search-fields { grid-template-columns: 1fr; }
+  .field-group { border-right: none; border-bottom: 1px solid #e5e7eb; border-radius: 0 !important; }
+  .btn-search { grid-column: 1; border-radius: 0 0 var(--radius-md) var(--radius-md) !important; padding: 18px; }
   .addons-grid { grid-template-columns: 1fr; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
   .weekend-illustration { display: none; }
-  .offer-card { flex: 0 0 calc(80% - 15px); }
+  .offer-card { flex: 0 0 calc(85% - 15px); }
   .dark-cards-right { gap: 16px; }
   .blog-teaser { flex-direction: column; }
   .view-more-btn { width: 100%; text-align: center; justify-content: center; }
@@ -1251,7 +1304,8 @@ input, select { font-family: inherit; }
   .hero-greeting h1 { font-size: 18px; }
   .footer-grid { grid-template-columns: 1fr; }
   .stats-grid { grid-template-columns: 1fr 1fr; }
-  .stats-number { font-size: 56px; }
+  .stats-number { font-size: 40px; }
+  .stat-suffix { font-size: 22px; }
   .routes-pills { flex-direction: column; }
   .footer-bottom { flex-direction: column; align-items: flex-start; }
 }
